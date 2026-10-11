@@ -1,0 +1,49 @@
+name: Deploy GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Pages
+        uses: actions/configure-pages@v5
+
+      - name: Verify static source files
+        shell: bash
+        run: |
+          html_count=$(find . -type d -name .git -prune -o -type f -name index.html -print | wc -l)
+          js_count=$(find . -type d -name .git -prune -o -type f -name '*.js' -print | wc -l)
+          if [ "$html_count" -lt 16 ] || [ "$js_count" -lt 14 ]; then
+            echo "Project files appear to be missing. Check for nested Git repositories/gitlinks."
+            exit 1
+          fi
+          find . -type d -name .git -prune -o -type f -name '*.js' -print0 |
+            xargs -0 -r -n1 node --check
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

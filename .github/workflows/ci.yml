@@ -1,0 +1,37 @@
+name: Static project checks
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Check expected project files are present
+        shell: bash
+        run: |
+          html_count=$(find . -type d -name .git -prune -o -type f -name index.html -print | wc -l)
+          js_count=$(find . -type d -name .git -prune -o -type f -name '*.js' -print | wc -l)
+          if [ "$html_count" -lt 16 ] || [ "$js_count" -lt 14 ]; then
+            echo "Expected the root gallery, 15 demos, and at least 14 JavaScript source files; found $html_count HTML entry points and $js_count JavaScript files."
+            echo "Check that app folders were not committed as nested Git repositories/gitlinks."
+            exit 1
+          fi
+
+      - name: Check JavaScript syntax
+        shell: bash
+        run: |
+          find . -type d -name .git -prune -o -type f -name '*.js' -print0 |
+            xargs -0 -r -n1 node --check

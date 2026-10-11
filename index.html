@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Browse 15 standalone HTML, CSS, and vanilla JavaScript demos, games, and browser experiments.">
+  <meta name="theme-color" content="#f4f7fb">
+  <title>JavaScript Project Collection</title>
+  <style>
+    :root {
+      color-scheme: light;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: #172033;
+      background: #f4f7fb;
+      font-synthesis: none;
+      text-rendering: optimizeLegibility;
+      --accent: #315acb;
+      --muted: #526078;
+      --border: #dce4f0;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-width: 320px; }
+    a { color: var(--accent); }
+    .shell { width: min(1100px, calc(100% - 2rem)); margin: 0 auto; }
+    .topbar { padding: 1.25rem 0; }
+    .brand { color: #172033; font-weight: 750; text-decoration: none; letter-spacing: -.02em; }
+    .hero {
+      padding: clamp(2.5rem, 8vw, 5.5rem) 0 3rem;
+      border-top: 1px solid var(--border);
+    }
+    .eyebrow {
+      margin: 0 0 .75rem;
+      color: var(--accent);
+      font-size: .8rem;
+      font-weight: 750;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    h1 { max-width: 14ch; margin: 0; font-size: clamp(2.5rem, 7vw, 5rem); line-height: 1.03; letter-spacing: -.055em; }
+    .intro { max-width: 64ch; margin: 1.25rem 0 0; color: var(--muted); font-size: 1.1rem; line-height: 1.7; }
+    .actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1.5rem; }
+    .button {
+      display: inline-flex;
+      min-height: 2.75rem;
+      align-items: center;
+      justify-content: center;
+      padding: .7rem 1rem;
+      border: 1px solid var(--accent);
+      border-radius: .55rem;
+      background: var(--accent);
+      color: #fff;
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .button.secondary { background: transparent; color: var(--accent); }
+    a:focus-visible { outline: 3px solid #f2a900; outline-offset: 3px; }
+    .section-heading { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: .5rem 1rem; }
+    h2 { margin: 0; font-size: 1.5rem; letter-spacing: -.025em; }
+    .count { margin: 0; color: var(--muted); font-size: .95rem; }
+    .projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 245px), 1fr)); gap: 1rem; margin: 1.25rem 0 3rem; }
+    .project {
+      display: flex;
+      min-height: 180px;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 1.25rem;
+      border: 1px solid var(--border);
+      border-radius: .8rem;
+      background: #fff;
+      color: inherit;
+      text-decoration: none;
+      transition: border-color .15s ease, transform .15s ease, box-shadow .15s ease;
+    }
+    .project:hover { transform: translateY(-2px); border-color: #a8bae9; box-shadow: 0 10px 25px rgb(23 32 51 / 7%); }
+    .tag { color: var(--accent); font-size: .75rem; font-weight: 750; letter-spacing: .08em; text-transform: uppercase; }
+    .project h3 { margin: .8rem 0 .45rem; font-size: 1.1rem; }
+    .project p { margin: 0; color: var(--muted); line-height: 1.55; }
+    .more { margin-top: auto !important; padding-top: 1rem; color: var(--accent) !important; font-size: .9rem; font-weight: 700; }
+    footer { padding: 1.5rem 0 2.5rem; border-top: 1px solid var(--border); color: var(--muted); line-height: 1.7; }
+    footer p { margin: .35rem 0; }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="shell">
+    <div class="topbar"><a class="brand" href="./">JavaScript Project Collection</a></div>
+    <div class="hero">
+      <p class="eyebrow">A collection of independent demos</p>
+      <h1>Small projects. Practical JavaScript.</h1>
+      <p class="intro">Explore standalone browser projects made with HTML, CSS, and vanilla JavaScript. Try a game, experiment with browser APIs, or browse small interactive UI exercises. No package installation is needed; a few demos need a network connection, local API configuration, or browser permission.</p>
+      <div class="actions">
+        <a class="button" href="#projects">Browse all projects</a>
+        <a class="button secondary" href="./README.md">Read setup and project notes</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="shell" id="projects">
+    <div class="section-heading">
+      <h2>Project gallery</h2>
+      <p class="count">15 independent projects - static HTML/CSS/JavaScript</p>
+    </div>
+    <section class="projects" aria-label="All projects">
+      <a class="project" href="./Drum%20Kit%20Completed/"><span class="tag">Audio</span><h3>Drum Kit</h3><p>Play drum sounds with clicks or keyboard keys.</p><p class="more">Open project</p></a>
+      <a class="project" href="./GreenScreen%20Project/"><span class="tag">Canvas &amp; camera</span><h3>Green Screen</h3><p>Experiment with webcam chroma-key and canvas effects.</p><p class="more">Open project</p></a>
+      <a class="project" href="./PracticeJS/"><span class="tag">Fundamentals</span><h3>PracticeJS Calculator</h3><p>A basic calculator exercise.</p><p class="more">Open project</p></a>
+      <a class="project" href="./QuoteForTheDay/"><span class="tag">Web API</span><h3>Quote for the Day</h3><p>A quote API experiment; API setup is incomplete.</p><p class="more">Open project</p></a>
+      <a class="project" href="./RandomPasswordGenerator/"><span class="tag">Utility</span><h3>Password Generator</h3><p>Generate a random password in the browser.</p><p class="more">Open project</p></a>
+      <a class="project" href="./Sticki%20Notes/"><span class="tag">Interface</span><h3>Sticky Notes</h3><p>A simple note-taking interface.</p><p class="more">Open project</p></a>
+      <a class="project" href="./To-do%20List/"><span class="tag">Browser storage</span><h3>To-do List</h3><p>Track tasks in browser local storage.</p><p class="more">Open project</p></a>
+      <a class="project" href="./URLink%20To%20QR%20Code%20Generator/"><span class="tag">Web API</span><h3>QR Code Generator</h3><p>Generate a QR code through a third-party service.</p><p class="more">Open project</p></a>
+      <a class="project" href="./calculator/"><span class="tag">Fundamentals</span><h3>Calculator</h3><p>A button-based arithmetic calculator.</p><p class="more">Open project</p></a>
+      <a class="project" href="./landing/"><span class="tag">Web design</span><h3>Landing Page</h3><p>A responsive personal-services page design.</p><p class="more">Open project</p></a>
+      <a class="project" href="./Spotify-20260122T052743Z-1-001/Spotify/"><span class="tag">Audio</span><h3>Spotify-Inspired Music Player</h3><p>Listen to local tracks with dynamic album art and playback controls. Not affiliated with Spotify.</p><p class="more">Open project</p></a>
+      <a class="project" href="./PingPong-20260122T052916Z-1-001/PingPong/"><span class="tag">Game</span><h3>Ping Pong</h3><p>Play a compact canvas game with keyboard controls and score tracking.</p><p class="more">Open project</p></a>
+      <a class="project" href="./my_weather/"><span class="tag">Web API</span><h3>Local Weather</h3><p>A geolocation-based forecast; requires API setup and location permission.</p><p class="more">Open project</p></a>
+      <a class="project" href="./portfolio/"><span class="tag">Portfolio</span><h3>Personal Portfolio</h3><p>A personal profile page. Review personal assets before publishing.</p><p class="more">Open project</p></a>
+      <a class="project" href="./weather%20app/"><span class="tag">Web API</span><h3>City Weather</h3><p>Search current weather by city; requires API setup.</p><p class="more">Open project</p></a>
+    </section>
+  </main>
+
+  <footer>
+    <div class="shell">
+      <p>These are independent learning projects, not one combined application. Some demos rely on third-party services or local browser permissions.</p>
+      <p>Before publishing or redistributing media, confirm that you have permission to share the images, audio, and personal documents included in each project.</p>
+      <p><a href="./SETUP.md">Setup</a> | <a href="./QUALITY_REVIEW.md">Known limitations</a> | <a href="./CONTRIBUTING.md">Contributing</a> | <a href="./LICENSE">License</a></p>
+    </div>
+  </footer>
+</body>
+</html>
