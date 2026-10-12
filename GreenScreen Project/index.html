@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChromaKey Video Processing</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>ChromaKey Video Processing</h1>
+    </header>
+    
+    <main>
+        <div class="video-container">
+            <div class="video-wrapper">
+                <h2>Input Video</h2>
+                <video id="v1" autoplay playsinline></video>
+            </div>
+            
+            <div class="video-wrapper">
+                <h2>Processed Video</h2>
+                <canvas id="c1"></canvas>
+            </div>
+            
+            <div class="video-wrapper">
+                <h2>Final Output</h2>
+                <canvas id="c2"></canvas>
+            </div>
+        </div>
+        
+        <div class="controls">
+            <div class="control-section">
+                <h3>Background</h3>
+                <div class="background-options">
+                    <button id="uploadImageBtn" class="btn">Upload Image</button>
+                    <input type="file" id="imageInput" accept="image/*" style="display: none;">
+                    
+                    <button id="uploadVideoBtn" class="btn">Upload Video</button>
+                    <input type="file" id="videoInput" accept="video/*" style="display: none;">
+                    
+                    <div class="preset-backgrounds">
+                        <button class="preset-btn" data-bg="beach">Beach</button>
+                        <button class="preset-btn" data-bg="space">Space</button>
+                        <button class="preset-btn" data-bg="city">City</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="control-section">
+                <h3>ChromaKey Settings</h3>
+                <div class="slider-control">
+                    <label for="hueRange">Hue Range:</label>
+                    <input type="range" id="hueRange" min="10" max="60" value="30">
+                    <span id="hueRangeValue">30</span>
+                </div>
+                
+                <div class="slider-control">
+                    <label for="satThreshold">Saturation Threshold:</label>
+                    <input type="range" id="satThreshold" min="0" max="100" value="50">
+                    <span id="satThresholdValue">50</span>
+                </div>
+                
+                <div class="slider-control">
+                    <label for="lightThreshold">Lightness Threshold:</label>
+                    <input type="range" id="lightThreshold" min="0" max="100" value="50">
+                    <span id="lightThresholdValue">50</span>
+                </div>
+            </div>
+            
+            <div class="control-section">
+                <h3>Effects</h3>
+                <div class="effect-options">
+                    <button class="effect-btn" data-effect="none">None</button>
+                    <button class="effect-btn" data-effect="grayscale">Grayscale</button>
+                    <button class="effect-btn" data-effect="sepia">Sepia</button>
+                    <button class="effect-btn" data-effect="invert">Invert</button>
+                    <button class="effect-btn" data-effect="brightness">Brighten</button>
+                </div>
+            </div>
+            
+            <div class="control-section">
+                <h3>Screen Color</h3>
+                <div class="screen-color-options">
+                    <button class="color-btn active" data-color="green">Green</button>
+                    <button class="color-btn" data-color="blue">Blue</button>
+                    <button class="color-btn" data-color="red">Red</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <p>ChromaKey Video Processing App | Created with HTML, CSS, and JavaScript</p>
+    </footer>
+    
+    <script src="index.js"></script>
+</body>
+</html>
+
